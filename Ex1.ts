@@ -16,3 +16,4 @@ console.log(UserFilter);
 
 export const UserSort = UserFilter.sort((a, b) => a.name.localeCompare(b.name));
 console.log(UserSort);
+//Sla mudança pra ter na main e na feltch
