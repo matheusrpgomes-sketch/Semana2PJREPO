@@ -1,4 +1,4 @@
-// Ex 5 em typescript dsa
+// Ex 5 em typescript arrumar
 type cidade = {
     city: string
     nome: string
