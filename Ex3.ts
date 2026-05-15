@@ -1,24 +1,35 @@
-  type product = {
-        price: number
-        name: string
-    }
-const Produtos : product [] = [ {price: 10, name: `Manga`}, {price: 7, name:`Tomate`},{price: 1, name: `Morango`}, {price: 6, name:`Banana`},{price: 3, name: `Maca`}, {price: 2, name:`Pera`}
-] 
-export const total = Produtos.map(item => item.price)
-console.log(total)
-export const soma = total.reduce<number>((acc, curr) => acc + curr, 0)/total.length
-console.log("Valor da media é", soma)
-console.log("O item mais caro tem o valor de " )
-export const caro = total.reduce<number>((Maior, Atual) => {   
-    if (Maior>Atual) {
-       return Maior;
-    }
-    else {
-        return Atual;
-    }  
-}, 0);
-console.log(`${caro}`,"É o item mais caro")
+type Product = {
+    price: number
+    name: string
+}
 
-export const val = total.map(item => item = item*0.9)
+const Produtos: Product[] = [
+    { price: 10, name: `Manga` },
+    { price: 7, name: `Tomate` },
+    { price: 1, name: `Morango` },
+    { price: 6, name: `Banana` },
+    { price: 3, name: `Maca` },
+    { price: 2, name: `Pera` }
+]
 
-console.log("Os produtos com 10% de desconto é ",val)
+// Soma total dos preços
+export const totalPrice = Produtos.reduce((acc, curr) => acc + curr.price, 0)
+console.log("Valor total:", totalPrice)
+
+// Média dos preços
+export const media = totalPrice / Produtos.length
+console.log("Valor da média é", media)
+
+// Item mais caro
+export const caro = Produtos.reduce((maior, atual) => {
+    if (maior.price > atual.price) {
+        return maior
+    } else {
+        return atual
+    }
+})
+console.log(`${caro.name} com R$${caro.price} é o item mais caro`)
+
+// 10% de desconto em todos os preços
+export const val = Produtos.map(item => item.price * 0.9)
+console.log("Os produtos com 10% de desconto são", val)
